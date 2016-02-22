@@ -8,29 +8,34 @@ var userPoints = []
 
 var matches = []
 
-if (userPoints < 6) {
-  checkPairs()
-} else if (userPoints >=6) {
-  console.log('You win')
-}
+control = document.body.querySelector(".control")
+cards = control.querySelectorAll("p")
 
-// don't think I'll be using this but don't want to delete
-// function checkPairs() {
-//   for (i = 0; i < pairs.length; i++) {
-//     if (userGuesses.includes(pairs[i])) {
-//       matches.push(userGuesses[i]);
-//     } else null
-//   }
-// } checkPairs()
+section = document.body.querySelector(".section")
 
-// dom codevar
-cards = document.body.querySelectorAll("p")
+score = section.querySelector("p")
+score.innerHTML = "Score: "
+
 
 function printCards() {
-for (i = 0; i < cards.length; i++) {
+  for (i = 0; i < cards.length; i++) {
     cards[i].innerHTML = pairs[i];
     cards[i].addEventListener('click', function() {
       userGuesses.push({innerHTML: this.innerHTML, click: userGuesses.length});
     })
-}
+  }
 } printCards()
+
+function checkPairs() {
+  for (i = 0; i < userGuesses.length; i++)
+    for (j = 1; j < userGuesses.length; j++)
+    if (((userGuesses[j].click - userGuesses[i].click === 1) || (userGuesses[j].click - userGuesses[i].click === -1)) && (userGuesses[j].innerHTML === userGuesses[i].innerHTML)) {
+      matches.push(userGuesses[i].innerHTML)
+    } else null
+  }
+
+  document.body.addEventListener("mouseover", function() {
+    score.innerHTML = "Score: " + matches.length
+  });
+
+  document.body.addEventListener("mouseover", checkPairs());
