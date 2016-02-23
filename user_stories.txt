@@ -7,3 +7,6 @@ User Stories;
 [] As a user, I win when when I find all matched pairs
 [] As a user, the game resets with I win
 [] As a user, the pairs are in different places when the game resets
+
+Bugs:
+[] User can click on the same box 2 times in a row and it will count as a match 

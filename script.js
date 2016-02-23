@@ -13,8 +13,11 @@ control = document.body.querySelector(".control")
 var cards = control.querySelectorAll(".column1")
 section = document.body.querySelector(".section")
 
-score = section.querySelector("p")
-  score.innerHTML = "Score: "
+// score = section.querySelector("p")
+//   score.innerHTML = "Score: "
+// document.body.addEventListener("mouseover", function() {
+//   score.innerHTML = "Score: " + matches.length
+// });
 
 function printCards() {
   for (i = 0; i < cards.length; i++) {
@@ -25,25 +28,26 @@ function printCards() {
 
       clicks++
       if (clicks === 1) {
-        cardOne.push(this)
+        cardOne.push(this);
+        this.classList.add("active");
       } else if (clicks === 2) {
-        cardTwo.push(this)
-      } else if (clicks > 2) {
-        cardOne = cardOne.splice()
-        cardTwo = cardTwo.splice()
-        clicks = 0
-      } else null
-
-      this.style.color = "white"
-        })
+        cardTwo.push(this);
+        this.classList.add("active");
+        setTimeout(function() {
+          erase();
+        },1000);
+      } else null;
+      })
   }
 } printCards()
 
-
-  document.body.addEventListener("mouseover", function() {
-    score.innerHTML = "Score: " + matches.length
-  });
-
+function erase() {
+  cardOne[0].classList.remove("active");
+  cardTwo[0].classList.remove("active");
+  cardOne.pop()
+  cardTwo.pop()
+  clicks = 0
+}
 
 document.body.addEventListener("click", findMatches);
 
