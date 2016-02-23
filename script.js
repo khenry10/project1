@@ -2,13 +2,14 @@
 
 var pairs = ["a", "b", "c", "d", "e", "f", "a", "b", "c", "d", "e", "f"]
 
-var userGuesses = []
+//storage arrays
 var userPoints = []
 var matches = []
 var clicks = []
 var cardOne = []
 var cardTwo = []
 
+//DOM targetting
 control = document.body.querySelector(".control")
 var cards = control.querySelectorAll(".column1")
 section = document.body.querySelector(".section")
@@ -19,13 +20,13 @@ document.body.addEventListener("mouseover", function() {
   score.innerHTML = "Score: " + (matches.length/2)
 });
 
+//Populates cards with data from pairs array
 function printCards() {
   for (i = 0; i < cards.length; i++) {
     cards[i].innerHTML = pairs[i];
     cards[i].addEventListener('click', function() {
 
-      userGuesses.push({innerHTML: this.innerHTML, click: userGuesses.length});
-
+      //Logs users 2 picks, gives preview of selection, and hides cards if wrong
       clicks++
       if (clicks === 1) {
         cardOne.push(this);
@@ -45,6 +46,7 @@ function printCards() {
   }
 } printCards()
 
+//function that hides users 2 picks after a preview and clears the array's where the selection is stored
 function erase() {
   cardOne[0].classList.remove("active");
   cardTwo[0].classList.remove("active");
@@ -53,16 +55,14 @@ function erase() {
   clicks = 0
 }
 
-document.body.addEventListener("click", findMatches);
-
+// function to check is user's selection are pairs and NOT the same actul card.  get's called after every 2nd pick
 function findMatches() {
   if ((cardOne[0].innerHTML === cardTwo[0].innerHTML) && (cardOne[0] !== cardTwo[0])) {
     matches.push(cardOne[0].innerHTML)
   } else null
 }
 
-//document.body.addEventListener("mouseover", disappearCards);
-
+//function to remove cards that user has found to be pairs.  Get's called after every 2nd pick
 function disappearCards() {
     for (z = 0; z < matches.length; z++)
       for (y = 0; y < cards.length; y++) {
