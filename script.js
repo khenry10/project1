@@ -7,7 +7,7 @@ var userPoints = []
 var matches = []
 
 control = document.body.querySelector(".control")
-cards = control.querySelectorAll("p")
+cards = control.querySelectorAll(".column1")
 section = document.body.querySelector(".section")
 
 score = section.querySelector("p")
@@ -42,6 +42,7 @@ function disappearCards() {
       for (y = 0; y < cards.length; y++) {
       if (matches[z] === cards[y].innerHTML)  {
         cards[y].style.backgroundColor = "white"
+        cards[y].style.color = "white"
       } else null
     }
   }
