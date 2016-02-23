@@ -1,6 +1,11 @@
 // declare a pairs array and user selection array
 
-var pairs = ["a", "b", "c", "d", "e", "f", "a", "b", "c", "d", "e", "f"]
+pairs = ["a", "b", "c", "d", "e", "f", "a", "b", "c", "d", "e", "f"]
+
+var pairs = pairs.sort(function() {
+  if (Math.random() > 0.5) return 1;
+  else return -1;
+});
 
 //storage arrays
 var userPoints = []
@@ -17,7 +22,7 @@ section = document.body.querySelector(".section")
 score = section.querySelector("p")
   score.innerHTML = "Score: "
 document.body.addEventListener("mouseover", function() {
-  score.innerHTML = "Score: " + (matches.length/2)
+  score.innerHTML = "Score: " + matches.length
 });
 
 //Populates cards with data from pairs array
@@ -35,6 +40,7 @@ function printCards() {
         cardTwo.push(this);
         this.classList.add("active");
         findMatches();
+        youWin();
         setTimeout(function() {
           disappearCards();
         },250);
@@ -72,3 +78,17 @@ function disappearCards() {
       } else null
     }
   }
+
+function youWin() {
+if (matches.length === 6) {
+  alert('You win');
+} else null
+};
+
+function reset(){
+    for (z = 0; z < cards.length; z++) {
+    cards[z].style.color = "blue"
+    cards[z].style.backgroundColor = "blue";
+  }
+    matches = 0
+}
