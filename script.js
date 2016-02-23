@@ -3,18 +3,15 @@
 var pairs = ["a", "b", "c", "d", "e", "f", "a", "b", "c", "d", "e", "f"]
 
 var userGuesses = []
-
 var userPoints = []
-
 var matches = []
 
 control = document.body.querySelector(".control")
 cards = control.querySelectorAll("p")
-
 section = document.body.querySelector(".section")
 
 score = section.querySelector("p")
-score.innerHTML = "Score: "
+  score.innerHTML = "Score: "
 
 function printCards() {
   for (i = 0; i < cards.length; i++) {
@@ -29,8 +26,9 @@ function printCards() {
     score.innerHTML = "Score: " + matches.length
   });
 
-  document.body.addEventListener("mouseover", findMatches())
+  document.body.addEventListener("click", findMatches);
 
+//this function continuosly pushes the matched user guesses to the matches array, creates many matches but they are actually duplicates.  Should fix, but it doesn't affect disappearCards in a negative way
   function findMatches() {
     for (i = 0; i < userGuesses.length; i++)
       for (j = 1; j < userGuesses.length; j++)
@@ -38,3 +36,12 @@ function printCards() {
             matches.push(userGuesses[j].innerHTML)
         } else null
     }
+
+function disappearCards() {
+    for (z = 0; z < matches.length; z++)
+      for (y = 0; y < cards.length; y++) {
+      if (matches[z] === cards[y].innerHTML)  {
+        cards[y].style.backgroundColor = "white"
+      } else null
+    }
+  }

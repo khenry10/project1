@@ -11,14 +11,17 @@ h1 {
 .column1 {
   width: 100px;
   height: 100px;
-  outline: 1px solid blue;
+  outline: 3px solid white;
   display: inline-block;
+  background-color: blue;
 }
 
 .section {
-  border: 1px solid green; 
+  border: 1px solid green;
 }
 
 p {
   text-align: center;
+  font-size: 30px;
+  color: blue;
 }
