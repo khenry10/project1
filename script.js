@@ -13,11 +13,11 @@ control = document.body.querySelector(".control")
 var cards = control.querySelectorAll(".column1")
 section = document.body.querySelector(".section")
 
-// score = section.querySelector("p")
-//   score.innerHTML = "Score: "
-// document.body.addEventListener("mouseover", function() {
-//   score.innerHTML = "Score: " + matches.length
-// });
+score = section.querySelector("p")
+  score.innerHTML = "Score: "
+document.body.addEventListener("mouseover", function() {
+  score.innerHTML = "Score: " + (matches.length/2)
+});
 
 function printCards() {
   for (i = 0; i < cards.length; i++) {
@@ -33,9 +33,13 @@ function printCards() {
       } else if (clicks === 2) {
         cardTwo.push(this);
         this.classList.add("active");
+        findMatches();
+        setTimeout(function() {
+          disappearCards();
+        },250);
         setTimeout(function() {
           erase();
-        },1000);
+        },250);
       } else null;
       })
   }
@@ -51,16 +55,13 @@ function erase() {
 
 document.body.addEventListener("click", findMatches);
 
-//this function continuosly pushes the matched user guesses to the matches array, creates many matches but they are actually duplicates.  Should fix, but it doesn't affect disappearCards in a negative way
-  function findMatches() {
-    for (i = 0; i < userGuesses.length; i++)
-      for (j = 1; j < userGuesses.length; j++)
-        if ((userGuesses[j].click - userGuesses[i].click === 1) && (userGuesses[j].innerHTML === userGuesses[i].innerHTML)) {
-            matches.push(userGuesses[j].innerHTML)
-        } else null
-    }
+function findMatches() {
+  if ((cardOne[0].innerHTML === cardTwo[0].innerHTML) && (cardOne[0] !== cardTwo[0])) {
+    matches.push(cardOne[0].innerHTML)
+  } else null
+}
 
-document.body.addEventListener("mouseover", disappearCards);
+//document.body.addEventListener("mouseover", disappearCards);
 
 function disappearCards() {
     for (z = 0; z < matches.length; z++)
