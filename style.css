@@ -15,6 +15,8 @@ h1 {
   display: inline-block;
   background-color: blue;
   color: blue;
+  font-size: 60px;
+  text-align: center;
 }
 
 .section {
