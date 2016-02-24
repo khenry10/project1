@@ -37,6 +37,11 @@ h1 {
   justify-content: space-around;
 }
 
+.column1:hover {
+  cursor: pointer;
+  box-shadow: 10px 10px 15px rgb(15, 100, 248);
+}
+
 .header {
   display: flex;
   background-color: rgb(15, 100, 248);

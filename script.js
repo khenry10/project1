@@ -90,8 +90,8 @@ if (matches.length === 6) {
 } else null
 };
 
-button = document.body.querySelector("button")
-button.addEventListener("click", reset)
+button = document.body.querySelectorAll("button")
+button[0].addEventListener("click", reset)
 
 function reset(){
     for (z = 0; z < cards.length; z++) {
@@ -99,4 +99,22 @@ function reset(){
     cards[z].style.boxShadow = "10px 10px 15px #D4D4D4";
   }
     matches = 0
+}
+
+
+button[1].addEventListener("click", preview)
+
+function preview(){
+  for (z = 0; z < cards.length; z++) {
+    cards[z].classList.add("active");
+    setTimeout(function() {
+      removePreview();
+    },1000)
+  }
+};
+
+function removePreview(){
+  for (z = 0; z < cards.length; z++) {
+    cards[z].classList.remove("active");
+  }
 }
