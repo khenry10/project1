@@ -18,9 +18,9 @@ var guesses = []
 //DOM targetting
 control = document.body.querySelector(".control")
 var cards = control.querySelectorAll(".column1")
-section = document.body.querySelector(".section")
+header = document.body.querySelector(".header")
 
-score = section.querySelector("p")
+score = header.querySelector("p")
   score.innerHTML = "Clicks: "
 document.body.addEventListener("mouseover", function() {
   score.innerHTML = "Clicks: " + guesses
@@ -79,7 +79,7 @@ function disappearCards() {
       if (matches[z] === cards[y].id)  {
         cards[y].style.backgroundColor = "transparent"
         cards[y].style.outline = '0px';
-        cards[y].style.boxShadow = '0px';
+        cards[y].style.boxShadow = "0px 0px 0px #D4D4D4"
       } else null
     }
   }
