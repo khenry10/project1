@@ -44,8 +44,9 @@ h1 {
   width: 101%;
   position: relative;
   top: -10px;
-  left: -5px; 
+  left: -5px;
   margin-bottom: 20px;
+  outline: 2px solid white;
   }
 
 .content {
@@ -98,4 +99,25 @@ h1 {
   background-image: url('images/galactic_core.jpg');
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.header button {
+  display: flex;
+  background-color: white;
+  border: none;
+  color: rgb(15, 100, 248);
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  border-radius: 25px;
+  cursor: pointer;}
+
+.header button:hover {
+    background-color: rgb(15, 100, 248);
+    color: white;
+    border-radius: 25px;
+    border: 1px solid white;
 }

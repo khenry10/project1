@@ -90,10 +90,13 @@ if (matches.length === 6) {
 } else null
 };
 
+button = document.body.querySelector("button")
+button.addEventListener("click", reset)
+
 function reset(){
     for (z = 0; z < cards.length; z++) {
-    cards[z].style.color = "blue"
-    cards[z].style.backgroundColor = "blue";
+    cards[z].style.backgroundColor = "#2CC990";
+    cards[z].style.boxShadow = "10px 10px 15px #D4D4D4";
   }
     matches = 0
 }
