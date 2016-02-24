@@ -13,6 +13,7 @@ var matches = []
 var clicks = []
 var cardOne = []
 var cardTwo = []
+var guesses = []
 
 //DOM targetting
 control = document.body.querySelector(".control")
@@ -22,7 +23,7 @@ section = document.body.querySelector(".section")
 score = section.querySelector("p")
   score.innerHTML = "Score: "
 document.body.addEventListener("mouseover", function() {
-  score.innerHTML = "Score: " + matches.length
+  score.innerHTML = "Clicks: " + guesses
 });
 
 //Populates cards with data from pairs array
@@ -35,10 +36,12 @@ function printCards() {
       clicks++
       if (clicks === 1) {
         cardOne.push(this);
+        guesses++
         this.classList.add("active");
       } else if (clicks === 2) {
         cardTwo.push(this);
         this.classList.add("active");
+        guesses++
         findMatches();
         youWin();
         setTimeout(function() {
