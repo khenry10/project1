@@ -6,25 +6,32 @@ h1 {
   font-size: 30px;
 }
 
+
 .control {
   margin-left: 12.5%;
   display: flex;
   flex-wrap: wrap;
-  height: 80vh;
+  height: 75vh;
   width: 75%;
-  outline: 1px solid pink;
   justify-content: space-between;
   align-items: center;
+  background-image: url('images/starz.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 25px;
 }
 
 .column1 {
-  width: 25%;
-  height: 33.333333%;
-  outline: 3px solid #D4D4D4;
+  width: 24.5%;
+  height: 32%;
+  /*outline: 3px solid #D4D4D4;*/
   background-color: #2CC990;
-  color: #2CC990;
+  /*color: #2CC990;*/
   font-size: 60px;
   text-align: center;
+  box-shadow: 10px 10px 15px #D4D4D4;
+  border-radius: 25px;
+  justify-content: space-around;
 }
 
 .section {
@@ -40,4 +47,40 @@ p {
 
 .active {
   color: white;
+}
+
+.active#a.column1 {
+  background-image: url('images/saturn.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.active#b.column1 {
+  background-image: url('images/solar_system.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.active#c.column1 {
+  background-image: url('images/color_cloud.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.active#d.column1 {
+  background-image: url('images/blue_cloud.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.active#e.column1 {
+  background-image: url('images/gods_eye.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.active#f.column1 {
+  background-image: url('images/galactic_core.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
