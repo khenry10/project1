@@ -44,6 +44,7 @@ h1 {
 
 .header {
   display: flex;
+  flex-wrap: wrap;
   background-color: rgb(15, 100, 248);
   height: 30%;
   width: 101%;
@@ -52,12 +53,9 @@ h1 {
   left: -5px;
   margin-bottom: 20px;
   outline: 2px solid white;
+  margin-right: 20px;
+  justify-content: space-between;
   }
-
-.content {
-  width: 30%;
-  align-self: center;
-}
 
 .header p {
   text-align: right;
@@ -111,11 +109,11 @@ h1 {
   background-color: white;
   border: none;
   color: rgb(15, 100, 248);
-  padding: 16px 32px;
+  padding: 5px 15px;
   text-align: center;
   text-decoration: none;
   font-size: 16px;
-  margin: 4px 2px;
+  margin: 24px 12px;
   transition-duration: 0.4s;
   border-radius: 25px;
   cursor: pointer;}

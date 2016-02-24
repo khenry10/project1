@@ -68,7 +68,7 @@ function erase() {
 // function to check is user's selection are pairs and NOT the same actul card.  get's called after every 2nd pick
 function findMatches() {
   if ((cardOne[0].id === cardTwo[0].id) && (cardOne[0] !== cardTwo[0])) {
-    matches.push(cardOne[0].id)
+    matches.push(cardOne[0].id);
   } else null
 }
 
@@ -91,18 +91,19 @@ if (matches.length === 6) {
 };
 
 button = document.body.querySelectorAll("button")
-button[0].addEventListener("click", reset)
+button[1].addEventListener("click", reset)
 
 function reset(){
     for (z = 0; z < cards.length; z++) {
     cards[z].style.backgroundColor = "#2CC990";
     cards[z].style.boxShadow = "10px 10px 15px #D4D4D4";
+    matches = [];
+    guesses = 0;
   }
-    matches = 0
 }
 
 
-button[1].addEventListener("click", preview)
+button[0].addEventListener("click", preview)
 
 function preview(){
   for (z = 0; z < cards.length; z++) {

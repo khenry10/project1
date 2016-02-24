@@ -2,11 +2,15 @@
 Bronze MVP: 1 user clicks to find matches and wins when he synchronously selects matched pairs. (minimal to no styling)
 
 User Stories;
-[] As a user, I can't see the pairs until I click on one
-[] As a user, I get points when I find matched pairs
-[] As a user, I win when when I find all matched pairs
-[] As a user, the game resets with I win
-[] As a user, the pairs are in different places when the game resets
+[x] As a user, I can't see the pairs until I click on one
+  -- Unless I click preview
+[x] As a user, I get points when I find matched pairs
+  -- points are lame, least amount of clicks is more fun
+[x] As a user, I win when when I find all matched pairs
+[x] As a user, the game resets with I win
+[x] As a user, the pairs are in different places when the game resets
 
 Bugs:
-[] User can click on the same box 2 times in a row and it will count as a match 
+[x] User can click on the same box 2 times in a row and it will count as a match
+[] hover-over effect on cards goes away after resetting
+[] User is able to click on the area's of the disappeared cards, and you see the image
