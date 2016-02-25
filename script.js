@@ -1,11 +1,14 @@
 // declare a pairs array and user selection array
 
-pairs = ["a", "b", "c", "d", "e", "f", "a", "b", "c", "d", "e", "f"]
+var pairs = ["a", "b", "c", "d", "e", "f", "a", "b", "c", "d", "e", "f"]
 
-var pairs = pairs.sort(function() {
+function randomize() {
+pairs = pairs.sort(function() {
   if (Math.random() > 0.5) return 1;
   else return -1;
 });
+return pairs
+}
 
 //storage arrays
 var userPoints = []
@@ -28,6 +31,7 @@ document.body.addEventListener("mouseover", function() {
 
 //Populates cards with data from pairs array
 function printCards() {
+  randomize()
   for (i = 0; i < cards.length; i++) {
     // cards[i].id = pairs[i];
     cards[i].id = pairs[i];
@@ -56,6 +60,7 @@ function printCards() {
   }
 } printCards()
 
+
 //function that hides users 2 picks after a preview and clears the array's where the selection is stored
 function erase() {
   cardOne[0].classList.remove("active");
@@ -67,10 +72,13 @@ function erase() {
 
 // function to check is user's selection are pairs and NOT the same actul card.  get's called after every 2nd pick
 function findMatches() {
-  if ((cardOne[0].id === cardTwo[0].id) && (cardOne[0] !== cardTwo[0])) {
+  if (guesses < 25) {
+    if ((cardOne[0].id === cardTwo[0].id) && (cardOne[0] !== cardTwo[0])) {
     matches.push(cardOne[0].id);
-  } else null
+    }  else null;
+  } else alert("You lose!");
 }
+
 
 //function to remove cards that user has found to be pairs.  Get's called after every 2nd pick
 function disappearCards() {
@@ -86,7 +94,7 @@ function disappearCards() {
 
 function youWin() {
 if (matches.length === 6) {
-  alert('You win');
+  alert('You win!');
 } else null
 };
 
@@ -97,6 +105,8 @@ function reset(){
     for (z = 0; z < cards.length; z++) {
     cards[z].style.backgroundColor = "#2CC990";
     cards[z].style.boxShadow = "10px 10px 15px #D4D4D4";
+    randomize();
+    printCards();
     matches = [];
     guesses = 0;
   }

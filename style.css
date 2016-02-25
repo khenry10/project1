@@ -11,11 +11,11 @@ h1 {
 
 
 .control {
-  margin-left: 5%;
+  margin-left: 2.5%;
   display: flex;
   flex-wrap: wrap;
   height: 80vh;
-  width: 90%;
+  width: 95%;
   justify-content: space-between;
   align-items: center;
   background-image: url('images/starz.jpg');
