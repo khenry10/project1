@@ -4,7 +4,7 @@
 
 ### Overview
 
-Memory Space is derivative of the Memory/Concentration game, where a user looks for pairs of the same image.  I originally logged the points, but decided to change to clicks since the number of points would always be the same with a 12 card board.
+Memory Space is a derivative of the Memory/Concentration game, where a user looks for pairs of the same image.  I originally logged the points, but decided to change to clicks since the number of points would always be the same with a 12 card board.
 
 I was originally planning to include instructions, but decided not to after user testing.  The discovery process was easy enough that even users unfamiliar with the game were able to quickly pick up (and were delightedly surprised when they figured it out and saw the images for the first time).
 
