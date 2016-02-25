@@ -13,4 +13,4 @@ User Stories;
 Bugs:
 [x] User can click on the same box 2 times in a row and it will count as a match
 [] hover-over effect on cards goes away after resetting
-[] User is able to click on the area's of the disappeared cards, and you see the image
+[x] User is able to click on the area's of the disappeared cards, and you see the image

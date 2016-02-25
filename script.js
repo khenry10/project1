@@ -17,6 +17,7 @@ var clicks = []
 var cardOne = []
 var cardTwo = []
 var guesses = []
+var cardsPicked = []
 
 //DOM targetting
 control = document.body.querySelector(".control")
@@ -42,18 +43,25 @@ function printCards() {
       if (clicks === 1) {
         cardOne.push(this);
         guesses++
-        this.classList.add("active");
+        console.log(clicks)
+        if (matches.includes(cardOne[0].id) === false) {
+          cardOne[0].classList.add("active");
+        } else eraseCardOne();
       } else if (clicks === 2) {
         cardTwo.push(this);
-        this.classList.add("active");
-        guesses++
+        cardsPicked.push(this);
+        console.log(clicks)
+        if (matches.includes(cardTwo[0].id) === false) {
+          guesses++
+          this.classList.add("active");
+        } else eraseCardTwo;
         findMatches();
         youWin();
         setTimeout(function() {
           disappearCards();
         },350);
         setTimeout(function() {
-          erase();
+          eraseBothCards();
         },450);
       } else null;
       })
@@ -62,7 +70,19 @@ function printCards() {
 
 
 //function that hides users 2 picks after a preview and clears the array's where the selection is stored
-function erase() {
+function eraseCardOne() {
+  cardOne[0].classList.remove("active");
+  cardOne.pop()
+  clicks = 0
+}
+
+function eraseCardTwo() {
+  cardTwo[0].classList.remove("active");
+  cardTwo.pop()
+  clicks = 0
+}
+
+function eraseBothCards() {
   cardOne[0].classList.remove("active");
   cardTwo[0].classList.remove("active");
   cardOne.pop()
@@ -70,13 +90,26 @@ function erase() {
   clicks = 0
 }
 
+
 // function to check is user's selection are pairs and NOT the same actul card.  get's called after every 2nd pick
 function findMatches() {
   if (guesses < 25) {
     if ((cardOne[0].id === cardTwo[0].id) && (cardOne[0] !== cardTwo[0])) {
     matches.push(cardOne[0].id);
     }  else null;
-  } else alert("You lose!");
+  } else if (guesses > 25) {
+    loserBoard()
+    alert("You lose!  Reload the page to play again.")
+
+  }
+}
+
+function loserBoard() {
+  for (y = 0; y < cards.length; y++) {;
+    cards[y].style.backgroundColor = "transparent"
+    cards[y].style.outline = '0px';
+    cards[y].style.boxShadow = "0px 0px 0px #D4D4D4"
+  }
 }
 
 
@@ -99,18 +132,6 @@ if (matches.length === 6) {
 };
 
 button = document.body.querySelectorAll("button")
-button[1].addEventListener("click", reset)
-
-function reset(){
-    for (z = 0; z < cards.length; z++) {
-    cards[z].style.backgroundColor = "#2CC990";
-    cards[z].style.boxShadow = "10px 10px 15px #D4D4D4";
-    randomize();
-    printCards();
-    matches = [];
-    guesses = 0;
-  }
-}
 
 
 button[0].addEventListener("click", preview)
