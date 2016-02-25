@@ -2,36 +2,25 @@
 
 var pairs = ["a", "b", "c", "d", "e", "f", "a", "b", "c", "d", "e", "f"]
 
-function randomize() {
-pairs = pairs.sort(function() {
-  if (Math.random() > 0.5) return 1;
-  else return -1;
-});
-return pairs
-}
 
 //storage arrays
 var userPoints = []
-var matches = []
-var clicks = []
 var cardOne = []
 var cardTwo = []
 var guesses = []
 
-//DOM targetting
-control = document.body.querySelector(".control")
-var cards = control.querySelectorAll(".column1")
-header = document.body.querySelector(".header")
 
-score = header.querySelector("p")
-  score.innerHTML = "Clicks: "
-document.body.addEventListener("mouseover", function() {
-  score.innerHTML = "Clicks: " + guesses
-});
+button = document.body.querySelectorAll("button")
+button[0].addEventListener("click", printCards)
 
 //Populates cards with data from pairs array
 function printCards() {
+  guesses = []
+  clicks = []
+  matches = []
+
   randomize()
+
   for (i = 0; i < cards.length; i++) {
     // cards[i].id = pairs[i];
     cards[i].id = pairs[i];
@@ -58,8 +47,15 @@ function printCards() {
       } else null;
       })
   }
-} printCards()
+}
 
+function randomize() {
+  pairs = pairs.sort(function() {
+    if (Math.random() > 0.5) return 1;
+    else return -1;
+  });
+  return pairs
+}
 
 //function that hides users 2 picks after a preview and clears the array's where the selection is stored
 function erase() {
@@ -78,6 +74,17 @@ function findMatches() {
     }  else null;
   } else alert("You lose!");
 }
+
+//DOM targetting
+control = document.body.querySelector(".control")
+var cards = control.querySelectorAll(".column1")
+header = document.body.querySelector(".header")
+
+score = header.querySelector("p")
+score.innerHTML = "Clicks: "
+document.body.addEventListener("mouseover", function() {
+  score.innerHTML = "Clicks: " + guesses
+});
 
 
 //function to remove cards that user has found to be pairs.  Get's called after every 2nd pick
@@ -99,21 +106,18 @@ if (matches.length === 6) {
 };
 
 button = document.body.querySelectorAll("button")
-button[1].addEventListener("click", reset)
+button[2].addEventListener("click", reset)
 
 function reset(){
     for (z = 0; z < cards.length; z++) {
     cards[z].style.backgroundColor = "#2CC990";
     cards[z].style.boxShadow = "10px 10px 15px #D4D4D4";
-    randomize();
     printCards();
-    matches = [];
-    guesses = 0;
   }
 }
 
 
-button[0].addEventListener("click", preview)
+button[1].addEventListener("click", preview)
 
 function preview(){
   for (z = 0; z < cards.length; z++) {
