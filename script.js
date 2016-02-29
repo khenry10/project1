@@ -2,7 +2,9 @@
 
 var pairs = ["a", "b", "c", "d", "e", "f", "a", "b", "c", "d", "e", "f"]
 
+// JGZ - Be careful about indenting here! It's picky, but really important to make sure your indenting is spot on
 function randomize() {
+  // JGZ - ex. this should be indented in once
 pairs = pairs.sort(function() {
   if (Math.random() > 0.5) return 1;
   else return -1;
@@ -13,6 +15,7 @@ return pairs
 //storage arrays
 var userPoints = []
 var matches = []
+// JGZ - if this is just a number you're incrementing, you can just set it = 0 instead of an empty array
 var clicks = []
 var cardOne = []
 var cardTwo = []
@@ -20,12 +23,14 @@ var guesses = []
 var cardsPicked = []
 
 //DOM targetting
+// JGZ - careful about creating these global variables! How could you go about avoiding this?
 control = document.body.querySelector(".control")
 var cards = control.querySelectorAll(".column1")
 header = document.body.querySelector(".header")
 
 score = header.querySelector("p")
   score.innerHTML = "Clicks: "
+  // JGZ - Do you need a mouseover for this? why not just set the innerHTML once the game starts?
 document.body.addEventListener("mouseover", function() {
   score.innerHTML = "Clicks: " + guesses
 });
@@ -54,6 +59,8 @@ function printCards() {
         if (matches.includes(cardTwo[0].id) === false) {
           guesses++
           this.classList.add("active");
+          // JGZ - Careful below! looks like you're missing some ()'s
+          // Is this else actually necessary?
         } else eraseCardTwo;
         findMatches();
         youWin();
@@ -115,6 +122,7 @@ function loserBoard() {
 
 //function to remove cards that user has found to be pairs.  Get's called after every 2nd pick
 function disappearCards() {
+  // JGZ - careful about seeting these as global variables! the for loop should be "var z = 0", and "var y = 0"
     for (z = 0; z < matches.length; z++)
       for (y = 0; y < cards.length; y++) {
       if (matches[z] === cards[y].id)  {
@@ -123,6 +131,7 @@ function disappearCards() {
         cards[y].style.boxShadow = "0px 0px 0px #D4D4D4"
       } else null
     }
+    // JGZ - Might it make sense to call eraseBothCards() here? instead of in your print function? so, if it's not a match, then erase?
   }
 
 function youWin() {
@@ -131,11 +140,13 @@ if (matches.length === 6) {
 } else null
 };
 
+// JGZ - global!
 button = document.body.querySelectorAll("button")
 
 
 button[0].addEventListener("click", preview)
 
+// JGZ - LOVE this! very solid idea
 function preview(){
   for (z = 0; z < cards.length; z++) {
     cards[z].classList.add("active");
@@ -145,6 +156,7 @@ function preview(){
   }
 };
 
+// JGZ - Great separation of functionality between the preview and remove preview! I really like it.
 function removePreview(){
   for (z = 0; z < cards.length; z++) {
     cards[z].classList.remove("active");
