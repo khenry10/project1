@@ -30,7 +30,6 @@ header = document.body.querySelector(".header")
 
 score = header.querySelector("p")
   score.innerHTML = "Clicks: "
-  // JGZ - Do you need a mouseover for this? why not just set the innerHTML once the game starts?
 document.body.addEventListener("mouseover", function() {
   score.innerHTML = "Clicks: " + guesses
 });
