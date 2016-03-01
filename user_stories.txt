@@ -1,3 +1,4 @@
+JGZ - great user stories!
 
 Bronze MVP: 1 user clicks to find matches and wins when he synchronously selects matched pairs. (minimal to no styling)
 

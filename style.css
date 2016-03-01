@@ -1,3 +1,5 @@
+/*JGZ - No validator errors, nice!*/
+
 body {
   background-color: #344146;
 }
@@ -47,8 +49,11 @@ h1 {
   flex-wrap: wrap;
   background-color: rgb(15, 100, 248);
   height: 30%;
+  /*JGZ - I think you can do this without having width over 100%
+  Maybe there is a margin somewhere causing the extra space? try inspecting the body...*/
   width: 101%;
   position: relative;
+  /*JGZ - Usually try to avoid negative css selections! this should also be unnecessary if you fix the above..*/
   top: -10px;
   left: -6px;
   margin-bottom: 20px;
@@ -69,6 +74,8 @@ h1 {
   color: white;
 }
 
+/*JGZ - Looks like a lot of repitition here, can you think of a way to combine some of these styling choices?
+Maybe add another class to each column that only has the background size/repeat options so you only have to write them once?*/
 .active#a.column1 {
   background-image: url('images/saturn.jpg');
   background-size: cover;
@@ -115,10 +122,13 @@ h1 {
   text-decoration: none;
   font-size: 16px;
   margin: 24px 12px;
+  /*JGZ - nice use of transition here! Looks great in action :)*/
   transition-duration: 0.4s;
   border-radius: 25px;
   cursor: pointer;}
 
+
+/*JGZ - careful of indentation here!*/
 .header button:hover {
     background-color: rgb(15, 100, 248);
     color: white;
