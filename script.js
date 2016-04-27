@@ -12,10 +12,6 @@ var game = {
   }
 }
 
-//refactor notes
-// - take out paragraphs
-// - append new divs instead of hardcoding
-// - printcards is smelly - Craig
 
 //DOM targetting
 cards: game.els.control.querySelectorAll(".column1")
