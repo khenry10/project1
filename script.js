@@ -93,11 +93,11 @@ function eraseBothCards() {
 
 // function to check is user's selection are pairs and NOT the same actul card.  get's called after every 2nd pick
 function findMatches() {
-  if (guesses < 25) {
+  if (guesses < 26) {
     if ((cardOne[0].id === cardTwo[0].id) && (cardOne[0] !== cardTwo[0])) {
     matches.push(cardOne[0].id);
     }  else null;
-  } else if (guesses > 25) {
+  } else if (guesses === 26) {
     loserBoard()
     alert("You lose!  Reload the page to play again.")
 
